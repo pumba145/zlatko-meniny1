@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="theme-color" content="#fff5f7" />
+  <title>Všetko najlepšie k meninám – moje zlatko</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+      min-height: 100dvh;
+      background: linear-gradient(160deg, #fff5f7 0%, #ffeef2 40%, #fff9f6 100%);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      color: #4a3a3a;
+      overflow-x: hidden;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    /* ===== ANIMATED HEARTS BACKGROUND ===== */
+    .hearts-container {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .heart {
+      position: absolute;
+      bottom: -50px;
+      font-size: 18px;
+      color: #e8a0b0;
+      opacity: 0.5;
+      animation: floatUp linear infinite;
+      text-shadow: 0 0 8px rgba(232, 160, 176, 0.35);
+      will-change: transform, opacity;
+    }
+
+    .heart::before {
+      content: "♥";
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) rotate(0deg) scale(1);
+        opacity: 0;
+      }
+      8% {
+        opacity: 0.5;
+      }
+      92% {
+        opacity: 0.35;
+      }
+      100% {
+        transform: translateY(-115vh) rotate(20deg) scale(1.1);
+        opacity: 0;
+      }
+    }
+
+    /* Different sizes & speeds */
+    .heart:nth-child(1)  { left: 4%;  font-size: 13px; animation-duration: 12s; animation-delay: 0s; }
+    .heart:nth-child(2)  { left: 11%; font-size: 20px; animation-duration: 15s; animation-delay: 1.3s; color: #d48a9c; }
+    .heart:nth-child(3)  { left: 19%; font-size: 15px; animation-duration: 13s; animation-delay: 0.6s; }
+    .heart:nth-child(4)  { left: 27%; font-size: 24px; animation-duration: 17s; animation-delay: 2.2s; color: #c45c7a; opacity: 0.35; }
+    .heart:nth-child(5)  { left: 34%; font-size: 12px; animation-duration: 11s; animation-delay: 0.9s; }
+    .heart:nth-child(6)  { left: 42%; font-size: 18px; animation-duration: 14s; animation-delay: 1.9s; }
+    .heart:nth-child(7)  { left: 50%; font-size: 16px; animation-duration: 16s; animation-delay: 0.4s; }
+    .heart:nth-child(8)  { left: 58%; font-size: 22px; animation-duration: 13.5s; animation-delay: 2.6s; }
+    .heart:nth-child(9)  { left: 65%; font-size: 14px; animation-duration: 12s; animation-delay: 1.1s; }
+    .heart:nth-child(10) { left: 73%; font-size: 17px; animation-duration: 15s; animation-delay: 0.7s; color: #d48a9c; }
+    .heart:nth-child(11) { left: 80%; font-size: 19px; animation-duration: 14s; animation-delay: 1.6s; }
+    .heart:nth-child(12) { left: 88%; font-size: 13px; animation-duration: 11.5s; animation-delay: 2.9s; }
+    .heart:nth-child(13) { left: 7%;  font-size: 16px; animation-duration: 16s; animation-delay: 3.3s; }
+    .heart:nth-child(14) { left: 94%; font-size: 15px; animation-duration: 13s; animation-delay: 1.2s; }
+    .heart:nth-child(15) { left: 46%; font-size: 11px; animation-duration: 10s; animation-delay: 0.3s; }
+    .heart:nth-child(16) { left: 24%; font-size: 21px; animation-duration: 18s; animation-delay: 2.1s; color: #c45c7a; opacity: 0.3; }
+    .heart:nth-child(17) { left: 76%; font-size: 14px; animation-duration: 12.5s; animation-delay: 3.6s; }
+    .heart:nth-child(18) { left: 54%; font-size: 18px; animation-duration: 14s; animation-delay: 1s; }
+    .heart:nth-child(19) { left: 14%; font-size: 12px; animation-duration: 11s; animation-delay: 2.3s; }
+    .heart:nth-child(20) { left: 86%; font-size: 16px; animation-duration: 15.5s; animation-delay: 1.8s; }
+
+    /* ===== CARD ===== */
+    .page {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 680px;
+      margin: 32px auto;
+      padding: 40px 36px 36px;
+      background: rgba(255, 252, 250, 0.90);
+      border-radius: 16px;
+      box-shadow: 
+        0 8px 32px rgba(196, 92, 122, 0.12),
+        0 2px 8px rgba(0,0,0,0.04);
+      border: 1px solid rgba(232, 160, 176, 0.35);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.45rem, 5vw, 1.9rem);
+      font-weight: 600;
+      color: #9b3b5a;
+      letter-spacing: 0.02em;
+      margin-bottom: 6px;
+      line-height: 1.25;
+    }
+
+    .header .subtitle {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1.1rem, 4vw, 1.3rem);
+      color: #c45c7a;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin: 16px 0 24px;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: "";
+      height: 1px;
+      width: min(80px, 20vw);
+      background: linear-gradient(90deg, transparent, #e8a0b0, transparent);
+    }
+
+    .divider .heart-icon {
+      color: #c45c7a;
+      font-size: 1.15rem;
+    }
+
+    .photo {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .photo img {
+      max-width: 220px;
+      width: 55%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(196, 92, 122, 0.18);
+      border: 3px solid rgba(255,255,255,0.85);
+    }
+
+    .body-text {
+      font-size: clamp(1.02rem, 3.2vw, 1.15rem);
+      line-height: 1.65;
+      text-align: center;
+      color: #4a3a3a;
+    }
+
+    .body-text p {
+      margin-bottom: 1em;
+    }
+
+    .closing {
+      text-align: center;
+      margin-top: 28px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(232, 160, 176, 0.4);
+    }
+
+    .closing .wish {
+      font-style: italic;
+      font-size: clamp(1.05rem, 3.5vw, 1.15rem);
+      color: #c45c7a;
+      margin-bottom: 8px;
+    }
+
+    .closing .name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.25rem, 4.5vw, 1.45rem);
+      font-weight: 600;
+      color: #9b3b5a;
+    }
+
+    .bottom-hearts {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 1.25rem;
+      letter-spacing: 10px;
+      color: #e8a0b0;
+    }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 640px) {
+      .page {
+        margin: 16px 10px;
+        padding: 28px 18px 26px;
+        border-radius: 14px;
+      }
+
+      .photo img {
+        width: 65%;
+        max-width: 200px;
+      }
+
+      .body-text {
+        font-size: 1.05rem;
+        line-height: 1.6;
+      }
+
+      .divider {
+        margin: 12px 0 18px;
+      }
+
+      /* Slightly fewer / smaller hearts on mobile for performance */
+      .heart:nth-child(n+15) {
+        display: none;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .page {
+        margin: 10px 6px;
+        padding: 22px 14px 22px;
+      }
+
+      .header h1 {
+        font-size: 1.3rem;
+      }
+
+      .body-text {
+        font-size: 0.98rem;
+      }
+    }
+
+    /* Prefer reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .heart {
+        animation: none;
+        opacity: 0.25;
+        bottom: auto;
+        top: 20%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Floating hearts -->
+  <div class="hearts-container" aria-hidden="true">
+    <span class="heart"></span>
+    <span class="heart"></span>
+    <span class="heart"></span>
+    <span class="heart"></span>
+    <span class="heart"></span>
+    <span class="heart"></span>
+    <span class="heart"></span>
+    <span class="heart"></span>
+    <span class="heart"></span>
+    <span class="heart"></span>
+    <span class="heart"></span>
+    <span class="heart"></span>
+    <span class="heart"></span>
+    <span class="heart"></span>
+    <span class="heart"></span>
+    <span class="heart"></span>
+    <span class="heart"></span>
+    <span class="heart"></span>
+    <span class="heart"></span>
+    <span class="heart"></span>
+  </div>
+
+  <main class="page">
+    <header class="header">
+      <h1>Všetko najlepšie k meninám</h1>
+      <p class="subtitle">moje zlatko</p>
+    </header>
+
+    <div class="divider">
+      <span class="heart-icon">♥</span>
+    </div>
+
+    <div class="photo">
+      <img src="romantic_heart.jpg" alt="Romantické srdiečko" width="220" height="147" />
+    </div>
+
+    <div class="body-text">
+      <p>Zlatko moje milované, veľmi ťa milujem, moja láska. Viac, než si kedy dokážeš predstaviť.</p>
+
+      <p>Niekedy ani neviem, ako vyjadriť všetko, čo cítim, pretože nech poviem čokoľvek, nikdy to nestačí. Znamenáš pre mňa tak veľa a milovať ťa sa stalo jednou z najprirodzenejších vecí, aké som kedy urobil.</p>
+
+      <p>Myslím na teba neustále – či sa práve rozprávame, smejeme, alebo len tak sedíme v tichu. Ďakujem ti, že pri mne stojíš, že ma miluješ a že si ma vyberáš každý jeden deň.</p>
+
+      <p>Viem, že nie som dokonalý a občas robím chyby alebo sa nevyjadrujem tak, ako by som mal, ale prosím, vedz, že moja láska k tebe nikdy nebola hraná. Každé „Milujem ťa“, ktoré poviem, prichádza z najhlbšieho vnútra môjho srdca.</p>
+
+      <p>Chcem, aby si vedela, že na tebe záleží – na tvojom šťastí, na tvojich pocitoch – a vždy sa budem snažiť byť niekým, vďaka komu sa budeš cítiť v bezpečí, milovaná a ocenená.</p>
+
+      <p>Chcem byť tým človekom, za ktorým sa po dlhom dni vrátiš domov, tým, kto s tebou oslavuje tie najšťastnejšie chvíle a stojí pri tebe v tých najťažších.</p>
+
+      <p>Ak má milovať ťa to, že si ťa budem vyberať znova a znova, budem si ťa vyberať ďalej. Nie preto, že musím, ale preto, že chcem. Pretože bez ohľadu na to, koľko ľudí je na tomto svete, moje srdce si vždy nájde cestu späť k tebe.</p>
+    </div>
+
+    <div class="closing">
+      <p class="wish">S láskou k tvojim meninám</p>
+      <p class="name">Daniel</p>
+    </div>
+
+    <div class="bottom-hearts">♥ ♥ ♥</div>
+  </main>
+</body>
+</html>
